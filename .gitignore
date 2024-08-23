@@ -1,0 +1,26 @@
+# Ignore environment variables file
+.env
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment directory
+summerize/
+
+# Ignore uploads directory
+uploads/
+
+# Ignore IDE/editor files
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore Windows specific files
+Thumbs.db
+

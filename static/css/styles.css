@@ -1,0 +1,265 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9;
+    color: #333;
+}
+
+/* Header Styles */
+header.head {
+    background: #4a90e2; /* Light Blue */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header.head h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Container Styles */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Main Content Styles */
+.main {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Input Section Styles */
+.input {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+/* File Input */
+input[type="file"] {
+    display: block;
+    margin: 15px 0;
+}
+.input p{
+
+    background-color: #eaf0f7;
+    padding: 8px;
+    font-size: 0.9em;
+    color: #4a90e2;
+    display: inline-block; /* Makes it only take up as much space as needed */
+    border-radius: 4px;
+}
+
+/* Button */
+button {
+    background-color: #4a90e2; /* Light Blue */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #357abd; /* Darker Blue */
+}
+
+/* Slider Styles */
+.slider-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    position: relative;
+    text-align: center;
+}
+
+.slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(to right, green 0%, orange 50%, red 100%);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    transition: background 0.3s ease;
+}
+
+.slider::-moz-range-thumb {
+    -moz-appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    transition: background 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background: #4CAF50;
+}
+
+.slider::-moz-range-thumb:hover {
+    background: #4CAF50;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.slider-labels span {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    color: #444;
+}
+
+.slider-labels span:nth-child(1) {
+    color: green;
+}
+
+.slider-labels span:nth-child(2) {
+    color: orange;
+}
+
+.slider-labels span:nth-child(3) {
+    color: red;
+}
+
+/* Result Section Styles */
+.result-container {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 8px;
+}
+
+.result-container h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #4a90e2;
+}
+
+.result-container textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+/* Word Count */
+.result-container p {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background-color: #eaf0f7;
+    padding: 8px;
+    font-size: 0.9em;
+    color: #4a90e2;
+    border-radius: 4px;
+    margin-bottom: 215px;
+    margin-right: 5px;
+}
+/* Ensure the overlay covers the entire screen */
+.loading-overlay {
+    position: fixed; /* Position relative to the viewport */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: #fff; /* White text color */
+    display: none; /* Hidden by default */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-direction: column; /* Stack items vertically */
+    z-index: 1000; /* Ensure it's on top of other content */
+}
+
+/* Spinner styling */
+.loading-spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-left: 8px solid #fff; /* White border segment */
+    border-radius: 50%; /* Circular shape */
+    width: 50px; /* Spinner size */
+    height: 50px; /* Spinner size */
+    animation: spin 1s linear infinite; /* Spin animation */
+    margin-bottom: 10px; /* Space below the spinner */
+}
+
+/* Keyframes for the spinning animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .input,
+    .result-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}

@@ -70,6 +70,9 @@ def summerize():
         result = "\n\n".join(summaries)
         word_count = len(result.split())
 
+        if filepath and os.path.exists(filepath):
+                os.remove(filepath)
+
     elif 'data' in request.form and request.form['data']:
         data = request.form['data']
         input_word_count = len(data.split())

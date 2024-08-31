@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import requests
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import os
 from dotenv import load_dotenv
@@ -159,5 +160,5 @@ def get_summary_length_parameters(word_count, slider_value):
     return min_length, max_length
 
 if __name__ == '__main__':
-    # app.run(debug=True)
-    pass
+    app.run(debug=True)
+    #pass

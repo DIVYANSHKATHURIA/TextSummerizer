@@ -9,6 +9,8 @@ import docx
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
+
 app.config['UPLOAD_FOLDER'] = 'uploads/'
 
 # Create the upload directory if it doesn't exist

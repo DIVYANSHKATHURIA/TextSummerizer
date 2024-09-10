@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formData = new FormData(form);
 
-        fetch('https://textsummerizer.onrender.com', {  // Local development URL; change to production URL if needed
+        fetch('https://textsummerizer.onrender.com/summerize', {  // Local development URL; change to production URL if needed
             method: 'POST',
             body: formData
         })

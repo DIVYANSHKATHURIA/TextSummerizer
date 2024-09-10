@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Summarizer</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
 </head>
-
 <body>
     <header class="head">
-        <h1>Text Summerizer</h1>
+        <h1>Text Summarizer</h1>
     </header>
     <div class="container">
-
         <div class="main">
             <div class="input">
-                <form action="{{url_for('summerize')}}" method="post" enctype="multipart/form-data">
+                <form id="summarizeForm" action="#" method="post" enctype="multipart/form-data">
                     <div class="slider-container">
                         <input type="range" min="0" max="2" step="1" value="0" class="slider" id="threePointSlider" name="summary_length">
                         <div class="slider-labels">
@@ -25,46 +22,26 @@
                             <span>Long</span>
                         </div>
                     </div>
-                <textarea name="data" cols="60" rows="18" placeholder="Enter your text here"></textarea>
-                <p>Input Word Count: {{ input_word_count }}</p>
-                <div>
-                    <label for="file">Or upload a PDF/DOCX file:</label>
-                    <input type="file" name="file" id="file">
-                </div>
-
-                <button type="submit">Submit</button>
-            </form>
+                    <textarea id="textInput" name="data" cols="60" rows="18" placeholder="Enter your text here"></textarea>
+                    <p id="inputWordCount">Input Word Count: 0</p>
+                    <div>
+                        <label for="file">Or upload a PDF/DOCX file:</label>
+                        <input type="file" name="file" id="file">
+                    </div>
+                    <button type="button" id="summarizeButton">Submit</button>
+                </form>
             </div>
-            
             <div class="result-container">
-                <textarea id="resultTextarea" name="result" cols="60" rows="24" readonly>{{result}} </textarea>
+                <textarea id="resultTextarea" name="result" cols="60" rows="24" readonly></textarea>
                 <button id="copyButton" class="copy-button">Copy Text</button>
-                <p>word_count :{{word_count}}</p>
-                
+                <p id="wordCount">Word Count: 0</p>
             </div>
         </div>
-        
     </div>
     <div id="loadingOverlay" class="loading-overlay">
         <div class="loading-spinner"></div>
         <p>Processing...</p>
     </div>
-    
-
-    <script>
-
-        document.querySelector('form').addEventListener('submit', function() {
-            document.getElementById('loadingOverlay').style.display = 'flex';
-        });
-
-
-        document.getElementById('copyButton').addEventListener('click', function() {
-            var textarea = document.getElementById('resultTextarea');
-            textarea.select();
-            document.execCommand('copy');
-            alert('Text copied to clipboard!');
-        });
-    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
-
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import requests
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
@@ -45,10 +45,10 @@ def summerize():
         elif filename.endswith('.docx'):
             texts = extract_text_from_docx(filepath)
         else:
-            return render_template('index.html', result="Unsupported file type")
+            return jsonify({"result": "Unsupported file type", "word_count": 0, "input_word_count": 0})
 
         if isinstance(texts, str):  # An error message was returned
-            return render_template('index.html', result=texts)
+            return jsonify({"result": texts, "word_count": 0, "input_word_count": 0})
 
         # Concatenate all extracted text into one string
         all_text = "\n".join(texts)
@@ -98,9 +98,9 @@ def summerize():
         word_count = len(result.split())
 
     else:
-        return render_template('index.html', result="No file selected or no text entered")
+        return jsonify({"result": "No file selected or no text entered", "word_count": 0, "input_word_count": 0})
 
-    return render_template('index.html', result=result, word_count=word_count, input_word_count=input_word_count)
+    return jsonify({"result": result, "word_count": word_count, "input_word_count": input_word_count})
 
 def extract_text_from_pdf(pdf_path):
     texts = []
@@ -161,4 +161,3 @@ def get_summary_length_parameters(word_count, slider_value):
 
 if __name__ == '__main__':
     app.run(debug=True)
-    #pass
